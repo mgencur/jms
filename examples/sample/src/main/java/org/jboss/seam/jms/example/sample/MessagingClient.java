@@ -21,7 +21,7 @@ import javax.naming.NamingException;
 @Named
 public class MessagingClient 
 {
-	@Inject @Bridged Event<Order> event;
+	@Inject @BridgedViaRoute Event<Order> orderEvent;
 
 	private Order myOrder;
 	
@@ -29,7 +29,7 @@ public class MessagingClient
 	{
 		myOrder = new Order("New bicycle");
 		
-		event.fire(myOrder);
+		orderEvent.fire(myOrder);
 
 
 /**

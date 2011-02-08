@@ -34,5 +34,4 @@ import org.jboss.seam.jms.annotations.JmsDestination;
 @JmsDestination(jndiName = "/jms/Q")
 public @interface MyQueue
 {
-
 }

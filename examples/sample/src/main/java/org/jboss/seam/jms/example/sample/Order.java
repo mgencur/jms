@@ -24,5 +24,4 @@ public class Order implements Serializable
 	{
 		this.product = product;
 	}
-	
 }
