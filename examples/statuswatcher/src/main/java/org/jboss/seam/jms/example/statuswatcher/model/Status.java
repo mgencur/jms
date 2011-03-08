@@ -50,7 +50,7 @@ public class Status implements Serializable
    @Column(name = "id")
    private int id;
 
-   private String user;
+   private String username;
 
    private String statusMessage;
 
@@ -62,9 +62,9 @@ public class Status implements Serializable
       this.statusMessage = "Enter a new status message...";
    }
 
-   public Status(String user, String message)
+   public Status(String username, String message)
    {
-      this.user = user;
+      this.username = username;
       this.statusMessage = message;
    }
 
@@ -90,12 +90,12 @@ public class Status implements Serializable
 
    public String getUser()
    {
-      return user;
+      return username;
    }
 
-   public void setUser(String user)
+   public void setUser(String username)
    {
-      this.user = user;
+      this.username = username;
    }
 
    public Date getDatetime()
@@ -164,7 +164,7 @@ public class Status implements Serializable
 
    public String toString()
    {
-      return "User: " + this.user + ", Time: " + this.getFriendlyDate() + ", Status: " + this.statusMessage;
+      return "User: " + this.username + ", Time: " + this.getFriendlyDate() + ", Status: " + this.statusMessage;
    }
 
 }

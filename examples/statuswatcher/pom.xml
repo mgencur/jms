@@ -1,172 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.jboss.seam.jms</groupId>
-		<artifactId>seam-jms-parent</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
-		<relativePath>../../pom.xml</relativePath>
-	</parent>
+   <parent>
+      <groupId>org.jboss.seam.jms</groupId>
+      <artifactId>seam-jms-parent</artifactId>
+      <version>3.0.0-SNAPSHOT</version>
+      <relativePath>../../pom.xml</relativePath>
+   </parent>
 
-	<artifactId>seam-statuswatcher-example</artifactId>
-	<packaging>war</packaging>
+   <artifactId>seam-statuswatcher-example</artifactId>
+   <packaging>war</packaging>
 
-	<name>Seam StatusWatcher Example (JMS)</name>
+   <name>Seam StatusWatcher Example (JMS)</name>
 
-	<properties>
-		<jboss.home>${env.JBOSS_HOME}</jboss.home>
-		<jboss.domain>default</jboss.domain>
-		<seam.jms.version>3.0.0-SNAPSHOT</seam.jms.version>
-		<jsf12.version>1.2_15</jsf12.version>
-		<ajax4jsf.version>1.0.5</ajax4jsf.version>
-	</properties>
+   <properties>
+      <jboss.home>${env.JBOSS_HOME}</jboss.home>
+      <jboss.domain>default</jboss.domain>
+      <seam.jms.version>3.0.0-SNAPSHOT</seam.jms.version>
+      <jsf12.version>1.2_15</jsf12.version>
+      <ajax4jsf.version>1.0.5</ajax4jsf.version>
+   </properties>
 
-	<dependencies>
+   <dependencies>
 
-		<dependency>
-			<groupId>org.jboss.seam.jms</groupId>
-			<artifactId>seam-jms-api</artifactId>
-			<version>${seam.jms.version}</version>
-		</dependency>
+      <dependency>
+         <groupId>org.jboss.seam.jms</groupId>
+         <artifactId>seam-jms-api</artifactId>
+         <version>${seam.jms.version}</version>
+      </dependency>
 
-		<dependency>
-			<groupId>org.jboss.seam.jms</groupId>
-			<artifactId>seam-jms-impl</artifactId>
-			<version>${seam.jms.version}</version>
-		</dependency>
+      <dependency>
+         <groupId>org.jboss.seam.jms</groupId>
+         <artifactId>seam-jms-impl</artifactId>
+         <version>${seam.jms.version}</version>
+      </dependency>
 
-		<dependency>
-			<groupId>org.jboss.spec.javax.jms</groupId>
-			<artifactId>jboss-jms-api_1.1_spec</artifactId>
-			<scope>provided</scope>
-		</dependency>
+      <dependency>
+         <groupId>org.jboss.spec.javax.jms</groupId>
+         <artifactId>jboss-jms-api_1.1_spec</artifactId>
+         <scope>provided</scope>
+      </dependency>
 
-		<dependency>
-			<groupId>org.jboss.spec.javax.ejb</groupId>
-			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
-			<scope>provided</scope>
-		</dependency>
+      <dependency>
+         <groupId>org.jboss.spec.javax.ejb</groupId>
+         <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+         <scope>provided</scope>
+      </dependency>
 
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.0.Final</version>
-			<scope>provided</scope>
-		</dependency>
+      <dependency>
+         <groupId>org.hibernate.javax.persistence</groupId>
+         <artifactId>hibernate-jpa-2.0-api</artifactId>
+         <version>1.0.0.Final</version>
+         <scope>provided</scope>
+      </dependency>
 
-		<!-- Common to JEE and Servlet containers -->
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
+      <!-- Common to JEE and Servlet containers -->
+      <dependency>
+         <groupId>javax.enterprise</groupId>
+         <artifactId>cdi-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
 
-		<dependency>
-			<groupId>org.jboss.spec.javax.annotation</groupId>
-			<artifactId>jboss-annotations-api_1.1_spec</artifactId>
-			<scope>provided</scope>
-		</dependency>
+      <dependency>
+         <groupId>org.jboss.spec.javax.annotation</groupId>
+         <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+         <scope>provided</scope>
+      </dependency>
 
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<classifier>jdk15</classifier>
-		</dependency>
+      <dependency>
+         <groupId>org.testng</groupId>
+         <artifactId>testng</artifactId>
+         <classifier>jdk15</classifier>
+      </dependency>
 
-		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>${jsf12.version}</version>
-			<scope>provided</scope>
-		</dependency>
+      <dependency>
+         <groupId>javax.faces</groupId>
+         <artifactId>jsf-api</artifactId>
+         <version>${jsf12.version}</version>
+         <scope>provided</scope>
+      </dependency>
 
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>el-impl</artifactId>
-			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.el</groupId>
-					<artifactId>el-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
+      <dependency>
+         <groupId>org.glassfish.web</groupId>
+         <artifactId>el-impl</artifactId>
+         <scope>runtime</scope>
+         <exclusions>
+            <exclusion>
+               <groupId>javax.el</groupId>
+               <artifactId>el-api</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <groupId>com.sun</groupId>
+         <artifactId>jsf-impl</artifactId>
+         <version>1.2_10</version>
+      </dependency>
+   </dependencies>
 
-	<build>
-		<finalName>statuswatcher</finalName>
-	</build>
+   <build>
+      <finalName>statuswatcher</finalName>
+   </build>
 
-	<profiles>
-		<profile>
-			<id>distribution</id>
-			<activation>
-				<property>
-					<name>release</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-assembly-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>jboss6</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-war-plugin</artifactId>
-						<configuration>
-							<webResources>
-								<resource>
-									<directory>src/main/webapp-jboss6</directory>
-									<filtering>false</filtering>
-								</resource>
-							</webResources>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>jboss-deploy</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>deploy-to-jbossas</id>
-								<phase>install</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<tasks>
-										<copy todir="${jboss.home}/server/default/deploy"	verbose="true" flatten="true">
-											<fileset dir="${basedir}">
-												<include name="src/main/resources-jboss6/*.xml" />
-												<include name="target/${project.build.finalName}.${project.packaging}" />
-											</fileset>
-										</copy>
-									</tasks>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+   <profiles>
+      <profile>
+         <id>distribution</id>
+         <activation>
+            <property>
+               <name>release</name>
+            </property>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-assembly-plugin</artifactId>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>jboss6</id>
+         <activation>
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-war-plugin</artifactId>
+                  <configuration>
+                     <webResources>
+                        <resource>
+                           <directory>src/main/webapp-jboss6</directory>
+                           <filtering>false</filtering>
+                        </resource>
+                     </webResources>
+                  </configuration>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>jboss-deploy</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <artifactId>maven-antrun-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>deploy-to-jbossas</id>
+                        <phase>install</phase>
+                        <goals>
+                           <goal>run</goal>
+                        </goals>
+                        <configuration>
+                           <tasks>
+                              <copy todir="${jboss.home}/server/default/deploy" verbose="true" flatten="true">
+                                 <fileset dir="${basedir}">
+                                    <include name="src/main/resources-jboss6/*.xml" />
+                                    <include name="target/${project.build.finalName}.${project.packaging}" />
+                                 </fileset>
+                              </copy>
+                           </tasks>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+<!--               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>jboss-maven-plugin</artifactId>
+                  <version>1.4.1</version>
+                  <configuration>
+                     <jbossHome>${jboss.home}</jbossHome>
+                     <serverName>${jboss.domain}</serverName>
+                     <fileNames>
+                        <param>${basedir}/src/main/resources-jboss6/statuswatcher-ds.xml</param>
+                        <param>${basedir}/src/main/resources-jboss6/statuswatcher-hotnetq-jms.xml</param>
+                        <param>${project.build.directory}/${project.build.finalName}.${project.packaging}</param>
+                     </fileNames>
+                  </configuration>
+               </plugin>-->
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
 
 </project>
