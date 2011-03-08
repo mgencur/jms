@@ -41,9 +41,8 @@ import org.jboss.seam.jms.example.statuswatcher.session.StatusManager;
 @MessageDriven(name = "OrderProcessor", activationConfig = { 
       @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"), 
       @ActivationConfigProperty(propertyName = "destination", propertyValue = "/jms/updateStatusQueue") })
-public class ServerMDB implements MessageListener
+public class DistributorMDB implements MessageListener
 {
-
    @Inject
    private StatusManager manager;
 
@@ -52,7 +51,7 @@ public class ServerMDB implements MessageListener
 
    @Resource(mappedName = "/jms/statusInfoTopic")
    private Topic statusTopic;
-
+   
    @Override
    public void onMessage(Message message)
    {
@@ -87,5 +86,4 @@ public class ServerMDB implements MessageListener
          }
       }
    }
-
 }

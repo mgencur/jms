@@ -26,46 +26,18 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.ObjectMessage;
-import javax.jms.Queue;
-import javax.jms.Session;
+import org.jboss.seam.jms.bridge.RouteBuilder;
 import org.jboss.seam.jms.example.statuswatcher.model.Status;
-import org.jboss.seam.jms.example.statuswatcher.qualifiers.BridgedViaRoute;
-import org.jboss.seam.jms.example.statuswatcher.qualifiers.StatusQueue;
-import org.jboss.seam.jms.example.statuswatcher.qualifiers.StatusSession;
-
 
 @RequestScoped
 @Named
 public class SendingClient
 {
-	@Inject 
-	@BridgedViaRoute 
-	Event<Status> statusEvent;
+	@Inject Event<Status> statusEvent;
 	
-//	@Inject @MyTopic 
-//	private TopicSubscriber ts;
-	
-//	@Inject @MyTopic 
-//	private Topic t;
-	
-//	@Inject @StatusQueue
-//	private Queue q;
-//	
-//	@Inject @JmsSessionSelector(transacted=true, acknowledgementMode=Session.AUTO_ACKNOWLEDGE)
-//	private Session s;
+	@Inject RouteBuilder rb;
 	
 	private Status status;
-	
-	@Inject 
-	@StatusSession
-	private Session session;
-	
-	@Inject 
-	@StatusQueue
-	private Queue statusQueue;
 	
    @PostConstruct
 	public void initialize()
@@ -73,51 +45,9 @@ public class SendingClient
 	   this.status = new Status();
 	}
 	
-	public String sendStatusUpdate() throws Exception
+	public void sendStatusUpdate() throws Exception
 	{
-		statusEvent.fire(status);
-		
-//		MessageProducer mp = s.createProducer(q);
-//		ObjectMessage message = s.createObjectMessage(statusUpdate);
-//		mp.send(message);
-				
-//		InitialContext ic = null;
-//		Connection connection = null;
-
-//		try 
-//		{
-//			ic = new InitialContext();
-//			ConnectionFactory cf = (ConnectionFactory)ic.lookup("/ConnectionFactory");
-//			connection = cf.createConnection();
-//			connection.start();
-//			Queue statusQueue = (Queue)ic.lookup("/jms/updateStatusQueue");
-//			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-//			MessageProducer producer = session.createProducer(statusQueue);
-			
-			ObjectMessage message = session.createObjectMessage(status);
-			MessageProducer producer = session.createProducer(statusQueue);
-			producer.send(message);
-			
-//		} 
-//		catch (JMSException e) 
-//		{
-//			e.printStackTrace();
-//		}
-//		finally
-//	    {
-//	         if (ic != null)
-//	         {
-//	            ic.close();
-//	         }
-//	         if (connection != null)
-//	         {
-//	            connection.close();
-//	         }
-//	    }
-		
-		this.status = null;
-		
-		return null;
+	   statusEvent.fire(status);
 	}
 	
 	public Status getStatus()
@@ -129,5 +59,4 @@ public class SendingClient
    {
       this.status = status;
    }
-	
 }

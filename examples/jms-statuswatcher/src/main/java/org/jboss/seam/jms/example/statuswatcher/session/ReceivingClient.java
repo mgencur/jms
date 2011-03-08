@@ -88,8 +88,8 @@ public class ReceivingClient implements Serializable
          connection = null;
       }
    }
-
-   public String receive() throws Exception
+   
+   public void receive() throws Exception
    {
       ObjectMessage msg;
       Message response;
@@ -101,7 +101,6 @@ public class ReceivingClient implements Serializable
             receivedStatuses.offerFirst((Status) msg.getObject());
          }
       }
-      return null;
    }
 
    public void changeFollowing(ValueChangeEvent e) throws Exception
@@ -127,10 +126,9 @@ public class ReceivingClient implements Serializable
       }
    }
 
-   public String history()
+   public void history()
    {
       receivedStatuses = new LinkedList<Status>(manager.getAllStatuses());
-      return null;
    }
    
    public List<Status> getReceivedStatuses() throws Exception
