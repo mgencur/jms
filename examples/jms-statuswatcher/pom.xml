@@ -10,7 +10,7 @@
       <relativePath>../../pom.xml</relativePath>
    </parent>
 
-   <artifactId>seam-statuswatcher-example</artifactId>
+   <artifactId>seam-jms-example-statuswatcher</artifactId>
    <packaging>war</packaging>
 
    <name>Seam StatusWatcher Example (JMS)</name>
@@ -19,7 +19,7 @@
       <jboss.home>${env.JBOSS_HOME}</jboss.home>
       <jboss.domain>default</jboss.domain>
       <seam.jms.version>3.0.0-SNAPSHOT</seam.jms.version>
-      <jsf12.version>1.2_15</jsf12.version>
+      <jsf.version>2.0.2-FCS</jsf.version>
       <ajax4jsf.version>1.0.5</ajax4jsf.version>
    </properties>
 
@@ -78,7 +78,7 @@
       <dependency>
          <groupId>javax.faces</groupId>
          <artifactId>jsf-api</artifactId>
-         <version>${jsf12.version}</version>
+         <version>${jsf.version}</version>
          <scope>provided</scope>
       </dependency>
 
@@ -92,11 +92,6 @@
                <artifactId>el-api</artifactId>
             </exclusion>
          </exclusions>
-      </dependency>
-      <dependency>
-         <groupId>com.sun</groupId>
-         <artifactId>jsf-impl</artifactId>
-         <version>1.2_10</version>
       </dependency>
    </dependencies>
 
