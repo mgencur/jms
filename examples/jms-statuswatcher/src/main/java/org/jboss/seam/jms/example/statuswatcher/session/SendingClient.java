@@ -33,24 +33,24 @@ import org.jboss.seam.jms.example.statuswatcher.model.Status;
 @Named
 public class SendingClient
 {
-	@Inject Event<Status> statusEvent;
-	
-	@Inject RouteBuilder rb;
-	
-	private Status status;
-	
+   @Inject Event<Status> statusEvent;
+   
+   @Inject RouteBuilder rb;
+   
+   private Status status;
+   
    @PostConstruct
-	public void initialize()
-	{
-	   this.status = new Status();
-	}
-	
-	public void sendStatusUpdate() throws Exception
-	{
-	   statusEvent.fire(status);
-	}
-	
-	public Status getStatus()
+   public void initialize()
+   {
+      this.status = new Status();
+   }
+   
+   public void sendStatusUpdate() throws Exception
+   {
+      statusEvent.fire(status);
+   }
+   
+   public Status getStatus()
    {
       return status;
    }
