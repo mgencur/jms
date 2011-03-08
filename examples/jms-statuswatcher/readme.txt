@@ -1,7 +1,13 @@
 Seam JMS StatusWatcher example
 ==============================
 
-To run the example on JBossAS 6:
+To run the example on JBossAS 6 you need to do the following:
+
+* add this line to $JBOSS_HOME/server/*/deploy/hornetq-configuration.xml:
+
+   <security-enabled>false</security-enabled>
+
+* build and deploy the app:
 
    mvn clean install jboss:hard-deploy
 
