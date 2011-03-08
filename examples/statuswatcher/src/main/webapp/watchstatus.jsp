@@ -27,7 +27,7 @@
    <div class="watchcontent">
       <h:dataTable id="receivedStatuses" value="#{receivingClient.receivedStatuses}" var="status">
 			<h:column>
-			   <span class="username"><h:outputText value="#{status.user}"/></span>
+			   <span class="username"><h:outputText value="#{status.username}"/></span>
 			   <span class="statuslabel"> changed his/her status </span>
 			   <span class="date"><h:outputText value=" #{status.friendlyDate}"/></span>
 			   <span class="statuslabel"> to ...</span>
