@@ -1,21 +1,28 @@
-To run the example with embedded jetty:
+Seam JMS StatusWatcher example
+==============================
 
-mvn jetty:run
+To run the example on JBossAS 6:
 
-Then navigate to:
+   mvn clean install jboss:hard-deploy
 
-http://localhost:9090/princess-rescue/home.jsf
+This will copy the resulting war along with a datasource and hornetq configuration file to JBoss AS
+deploy directory.
 
-To run the exmaple using embbeded tomcat:
+The application simulates sending your status messages to a server through JMS Queue, the server
+then stores the messages in a database and distributes them to a general JMS Topic where all people 
+can see statuses of all the other people.
 
-mvn tomcat:run
+The webpage where you can find statuses of other people is available at:
 
-Then navigate to:
+   http://localhost:8080/statuswatcher/watchstatus.jsf
 
-http://localhost:6060/princess-rescue/home.jsf
+If you tick "Follow all" the page will be periodically refreshed (the interval is 20 seconds) and
+status messages will be received. Furthermore, you can receive all messages immediately by clicking 
+on "Receive". If you are interested in all the messages that came to the server, click "History".
 
-To deploy the example to jbossas 6:
+You can send your status to the server via (opening it in a different browser window):
 
-export JBOSS_HOME=/path/to/jboss
-mvn clean install jboss:hard-deploy -Pjbossas
+   http://localhost:8080/statuswatcher/sendstatus.jsf
+
+Of course, you can open several browser windows, one for each user, and watch incomming statuses.
 
