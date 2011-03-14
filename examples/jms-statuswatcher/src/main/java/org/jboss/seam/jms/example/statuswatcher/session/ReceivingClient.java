@@ -66,8 +66,7 @@ public class ReceivingClient implements Serializable
    private transient Session session;
    private transient TopicSubscriber subscriber;
    
-   @Inject 
-   @StatusTopic
+   @Inject @StatusTopic
    private Topic statusTopic;
    
    @PostConstruct
